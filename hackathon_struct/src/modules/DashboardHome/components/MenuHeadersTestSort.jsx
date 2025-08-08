@@ -81,19 +81,12 @@ const MenuHeadersSort = () => {
 
   // const [alertsToShow, setAlertsToShow] = useState([]);
 
-<<<<<<< Updated upstream
   const alertsToShow = mock.filter((row) => row.daysOfService < 0);
 
   // useEffect(() => {
   //   const filteredAlerts = mock.filter((row) => row.daysOfService < 0);
   //   setAlertsToShow(filteredAlerts);
   // }, [mock]);
-=======
-  useEffect(() => {
-    const filteredAlerts = mock.filter((row) => row.daysOfService < 0);
-    setAlertsToShow(filteredAlerts);
-  }, [mock]);
->>>>>>> Stashed changes
 
   const [expandedRows, setExpandedRows] = useState({});
   //Create a state to toggle on or off expaded view (Use an object so we can link the rowID with true/false  {rowID:t/f, rowID:t/f ..})
