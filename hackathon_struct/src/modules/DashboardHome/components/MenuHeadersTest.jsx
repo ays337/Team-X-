@@ -6,75 +6,78 @@ import "common/styles.css";
 const MenuHeaders2 = () => {
   const mock = [
     {
-      ID: "1",
-      Staging: "C",
-      Destination: "Florida",
-      Alerts: "None",
-      Days_of_Service: "3",
-      ExpandedData: {
-        ProductNumber: "DA-1001",
-        Pallets: "25",
-        Status: "Backlog",
-        ProductName: "Detergent A",
-        Destination: "Warehouse X",
+      sku_id: 1,
+      daysOfService: 3,
+      pallets: 8,
+      weight_lbs: 7000,
+      remortgage_gallons: 1020,
+      alert_type: "Urgent SKU",
+      staging_lane: "Lane A",
+      destination: "Warehouse X",
+      additionalDetails: {
+        product_number: "DA-1001",
+        status: "In Production",
+        Producation_estimated_completion: new Date(2023, 11, 2, 12, 0, 0),
+        dock_location: "Dock 1",
+        dockLast_refresh: new Date(2023, 11, 1, 8, 0, 0),
+        alert_message: "Low days of service",
+        timestampAlert: new Date(2023, 11, 1, 8, 11, 0),
       },
     },
     {
-      ID: "2",
-      Staging: "A",
-      Destination: "NYC",
-      Alerts: "Urgent SKU",
-      Days_of_Service: "2",
-      ExpandedData: {
-        ProductNumber: "CB-1002",
-        Pallets: "293",
-        Status: "Backlog",
-        ProductName: "Cleaner B",
-        Destination: "Warehouse Y",
+      sku_id: 2,
+      daysOfService: 4,
+      pallets: 5,
+      weight_lbs: 2000,
+      remortgage_gallons: 7020,
+      alert_type: "Dock Aging",
+      staging_lane: "Lane B",
+      destination: "Warehouse Y",
+      additionalDetails: {
+        product_number: "BQ-1007",
+        status: "Ready to Ship",
+        Producation_estimated_completion: new Date(2023, 11, 3, 12, 0, 0),
+        dock_location: "Dock 1",
+        dockLast_refresh: new Date(2023, 11, 1, 7, 0, 0),
+        alert_message: "SKU has been staged for over 48 hours",
+        timestampAlert: new Date(2023, 11, 1, 7, 11, 0),
       },
     },
     {
-      ID: "3",
-      Staging: "A",
-      Destination: "Cleveland",
-      Alerts: "None",
-      Days_of_Service: "8",
-      ExpandedData: {
-        ProductNumber: "DO-1015",
-        Pallets: "342",
-        Status: "In Production",
-        ProductName: "Polish F",
-        Destination: "Warehouse Z",
-      },
-    },
-    {
-      ID: "4",
-      Staging: "B",
-      Destination: "Chicago",
-      Alerts: "Low days of service",
-      Days_of_Service: "-2",
-      ExpandedData: {
-        ProductNumber: "BQ-1017",
-        Pallets: "25",
-        Status: "Ready to Ship",
-        ProductName: "Detergent A",
-        Destination: "Warehouse X",
+      sku_id: 3,
+      daysOfService: 1,
+      pallets: 3,
+      weight_lbs: 3000,
+      remortgage_gallons: 5020,
+      alert_type: "Urgent SKU",
+      staging_lane: "Lane C",
+      destination: "Warehouse X",
+      additionalDetails: {
+        product_number: "RJ-1010",
+        status: "Backlog",
+        Producation_estimated_completion: new Date(2023, 11, 2, 2, 0, 0),
+        dock_location: "Dock 1",
+        dockLast_refresh: new Date(2023, 11, 1, 5, 0, 0),
+        alert_message: "Low days of service",
+        timestampAlert: new Date(2023, 11, 1, 5, 11, 0),
       },
     },
   ];
 
-  const sortedmock = mock.slice().sort((a, b) => Number(b.ID) - Number(a.ID));
+  const sortedmock = mock
+    .slice()
+    .sort((a, b) => Number(b.sku_id) - Number(a.sku_id));
 
   console.log(sortedmock);
 
   const [expandedRows, setExpandedRows] = useState({});
   //Create a state to toggle on or off expaded view (Use an object so we can link the rowID with true/false  {rowID:t/f, rowID:t/f ..})
 
-  const toggleRow = (id) => {
+  const toggleRow = (sku_id) => {
     setExpandedRows((prev) => ({
       //pass in the expanded rows object as prev
       ...prev, //spread the expandedRowsobject
-      [id]: !prev[id],
+      [sku_id]: !prev[sku_id],
       //use computed object literal noation to "add" (more of an update) a row ID key and set the value which is prev[id](object[key] = value) to the negation of itself
       //So essentially spread the state, update the key to the negation
     }));
@@ -85,36 +88,41 @@ const MenuHeaders2 = () => {
       <thead className="theadstyles">
         <tr className="trheadstyles">
           <th className="thheadstyles">Select</th>
-          <th className="thheadstyles">ID</th>
-          <th className="thheadstyles">Staging</th>
+          <th className="thheadstyles">sku_id</th>
+          <th className="thheadstyles">days_of_service</th>
+          <th className="thheadstyles">Pallets</th>
+          <th className="thheadstyles">Weight</th>
+          <th className="thheadstyles">Remortgage Gallons</th>
+          <th className="thheadstyles">Alert Type</th>
+          <th className="thheadstyles">Staging Lane</th>
           <th className="thheadstyles">Destination</th>
-          <th className="thheadstyles">Alerts</th>
-          <th className="thheadstyles">Days_of_Service</th>
         </tr>
       </thead>
       <tbody id="plant-table-body">
         {sortedmock.map((row) => (
           <>
-            <tr className="trbodystyles" key={row.ID}>
+            <tr className="trbodystyles" key={row.sku_id}>
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
                   <span className="tdcontentspan">
                     <input
                       type="checkbox"
-                      checked={expandedRows[row.ID] === true}
-                      onChange={() => toggleRow(row.ID)}
+                      checked={expandedRows[row.sku_id] === true}
+                      onChange={() => toggleRow(row.sku_id)}
                     />
                   </span>
                 </div>
               </td>
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
-                  <span className="tdcontentspan">{row.ID}</span>
+                  <span className="tdcontentspan">{row.sku_id}</span>
                 </div>
               </td>
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
-                  <span className="tdcontentspan">{row.Staging ?? "N/A"}</span>
+                  <span className="tdcontentspan">
+                    {row.daysOfService ?? "N/A"}
+                  </span>
                 </div>
               </td>
               <td className="tdbodyleftstyles">
@@ -126,28 +134,58 @@ const MenuHeaders2 = () => {
               </td>
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
-                  <span className="tdcontentspan">{row.Alerts ?? "N/A"}</span>
+                  <span className="tdcontentspan">{row.pallets ?? "N/A"}</span>
                 </div>
               </td>
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
                   <span className="tdcontentspan">
-                    {row.Days_of_Service ?? "N/A"}
+                    {row.weight_lbs ?? "N/A"}
+                  </span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">
+                    {row.remortgage_gallons ?? "N/A"}
+                  </span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">
+                    {row.alert_type ?? "N/A"}
+                  </span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">
+                    {row.staging_lane ?? "N/A"}
+                  </span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">
+                    {row.destination ?? "N/A"}
                   </span>
                 </div>
               </td>
             </tr>
-            {expandedRows[row.ID] && (
+            {expandedRows[row.sku_id] && (
               <tr>
                 <td colSpan={5}>
                   <div style={{ padding: "10px", backgroundColor: "#f9f9f9" }}>
                     <strong>Expanded Data:</strong>
                     <ul style={{ marginTop: "5px" }}>
-                      {Object.entries(row.ExpandedData).map(([key, value]) => (
-                        <li key={key}>
-                          <strong>{key}:</strong> {value}
-                        </li>
-                      ))}
+                      {Object.entries(row.additionalDetails).map(
+                        ([key, value]) => (
+                          <li key={key}>
+                            <strong>{key}:</strong> {value}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </td>
