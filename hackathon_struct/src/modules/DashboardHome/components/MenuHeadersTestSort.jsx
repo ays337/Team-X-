@@ -66,6 +66,13 @@ const MenuHeadersSort = () => {
     },
   ];
 
+  function camelCaseToTitle(str) {
+    return str
+      .replace(/_/g, " ") // replace underscores with spaces
+      .replace(/([a-z])([A-Z])/g, "$1 $2") // insert space before capital letters
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // capitalize first letter of each word
+  }
+
   const sortedmock = mock
     .slice()
     .sort((a, b) => Number(b.sku_id) - Number(a.sku_id));
@@ -74,12 +81,19 @@ const MenuHeadersSort = () => {
 
   // const [alertsToShow, setAlertsToShow] = useState([]);
 
+<<<<<<< Updated upstream
   const alertsToShow = mock.filter((row) => row.daysOfService < 0);
 
   // useEffect(() => {
   //   const filteredAlerts = mock.filter((row) => row.daysOfService < 0);
   //   setAlertsToShow(filteredAlerts);
   // }, [mock]);
+=======
+  useEffect(() => {
+    const filteredAlerts = mock.filter((row) => row.daysOfService < 0);
+    setAlertsToShow(filteredAlerts);
+  }, [mock]);
+>>>>>>> Stashed changes
 
   const [expandedRows, setExpandedRows] = useState({});
   //Create a state to toggle on or off expaded view (Use an object so we can link the rowID with true/false  {rowID:t/f, rowID:t/f ..})
@@ -248,7 +262,7 @@ const MenuHeadersSort = () => {
                 className="thheadstyles"
                 onClick={() => handleSort("remortgage_gallons")}
               >
-                Remortgage_gallons
+                Remortgage Gallons
                 {sortConfig.key === "remortgage_gallons"
                   ? sortConfig.direction === "asc"
                     ? "↑"
@@ -388,13 +402,29 @@ const MenuHeadersSort = () => {
                           {Object.entries(row.additionalDetails).map(
                             ([key, value]) => (
                               <li key={key}>
-                                <strong>{key}:</strong>
+                                <strong>{camelCaseToTitle(key)}:</strong>{" "}
                                 {value instanceof Date
                                   ? value.toLocaleString()
                                   : value}
                               </li>
                             )
                           )}
+
+                          <span>
+                            Dock aging:{" "}
+                            {row.dockLast_refresh instanceof Date &&
+                            !isNaN(row.dockLast_refresh.getTime())
+                              ? (() => {
+                                  const days = Math.floor(
+                                    (new Date() - row.dockLast_refresh) /
+                                      (1000 * 60 * 60 * 24)
+                                  );
+                                  return `${days} day${
+                                    days !== 1 ? "s" : ""
+                                  } since last stage`;
+                                })()
+                              : "N/A"}
+                          </span>
                         </ul>
                       </div>
                     </td>
