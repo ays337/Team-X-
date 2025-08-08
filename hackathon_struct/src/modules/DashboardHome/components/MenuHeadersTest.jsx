@@ -87,7 +87,6 @@ const MenuHeaders2 = () => {
     <table className="tablestyles">
       <thead className="theadstyles">
         <tr className="trheadstyles">
-          <th className="thheadstyles">Select</th>
           <th className="thheadstyles">sku_id</th>
           <th className="thheadstyles">days_of_service</th>
           <th className="thheadstyles">Pallets</th>
@@ -103,7 +102,11 @@ const MenuHeaders2 = () => {
           <>
             <tr className="trbodystyles" key={row.sku_id}>
               <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper"></div>
+              </td>
+              <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">{row.sku_id}</span>
                   <span className="tdcontentspan">
                     <input
                       type="checkbox"
@@ -111,11 +114,6 @@ const MenuHeaders2 = () => {
                       onChange={() => toggleRow(row.sku_id)}
                     />
                   </span>
-                </div>
-              </td>
-              <td className="tdbodyleftstyles">
-                <div className="tdcontentwrapper">
-                  <span className="tdcontentspan">{row.sku_id}</span>
                 </div>
               </td>
               <td className="tdbodyleftstyles">

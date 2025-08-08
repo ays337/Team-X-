@@ -144,53 +144,65 @@ const MenuHeadersSort = () => {
 
   return (
     <>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Alert</div>
-        <select
-          value={alertFilter}
-          onChange={(e) => setAlertFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Low days of service">Low days of service</option>
-          <option value="Urgent SKU">Urgent SKU</option>
-        </select>
-      </div>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Destination</div>
-        <select
-          value={destinationFilter}
-          onChange={(e) => setDestinationFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Warehouse X">Warehouse X</option>
-          <option value="Warehouse Y">Warehouse Y</option>
-        </select>
-      </div>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Staging</div>
-        <select
-          value={stagingFilter}
-          onChange={(e) => setStagingFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Lane A">Lane A</option>
-          <option value="Lane B">Lane B</option>
-        </select>
-      </div>
       <div>
         <table className="tablestyles">
           <thead className="theadstyles">
             <tr className="trheadstyles">
-              <th className="thheadstyles">Select</th>
+              <th style={{ border: "none" }} colSpan={4}>
+                {" "}
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Alert</div>
+                  <select
+                    value={alertFilter}
+                    onChange={(e) => setAlertFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Low days of service">
+                      Low days of service
+                    </option>
+                    <option value="Urgent SKU">Urgent SKU</option>
+                  </select>
+                </div>
+              </th>
+              <th style={{ border: "none" }} colSpan={2}>
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Destination</div>
+                  <select
+                    value={destinationFilter}
+                    onChange={(e) => setDestinationFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Warehouse X">Warehouse X</option>
+                    <option value="Warehouse Y">Warehouse Y</option>
+                  </select>
+                </div>
+              </th>
+              <th style={{ border: "none" }} colSpan={2}>
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Staging</div>
+                  <select
+                    value={stagingFilter}
+                    onChange={(e) => setStagingFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Lane A">Lane A</option>
+                    <option value="Lane B">Lane B</option>
+                  </select>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <thead className="theadstyles">
+            <tr className="trheadstyles">
               <th className="thheadstyles" onClick={() => handleSort("sku_id")}>
                 ID
                 {sortConfig.key === "sku_id"
@@ -285,17 +297,14 @@ const MenuHeadersSort = () => {
                   <td className="tdbodyleftstyles">
                     <div className="tdcontentwrapper">
                       <span className="tdcontentspan">
+                        {" "}
                         <input
                           type="checkbox"
                           checked={expandedRows[row.sku_id] === true}
                           onChange={() => toggleRow(row.sku_id)}
                         />
+                        {row.sku_id}
                       </span>
-                    </div>
-                  </td>
-                  <td className="tdbodyleftstyles">
-                    <div className="tdcontentwrapper">
-                      <span className="tdcontentspan">{row.sku_id}</span>
                     </div>
                   </td>
                   <td className="tdbodyleftstyles">
