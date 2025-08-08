@@ -10,6 +10,7 @@ const MenuHeadersSort = () => {
       Staging: "C",
       Destination: "Florida",
       Alerts: "None",
+      Days_of_Service: "3",
       ExpandedData: {
         ProductNumber: "DA-1001",
         Pallets: "25",
@@ -22,7 +23,8 @@ const MenuHeadersSort = () => {
       ID: "2",
       Staging: "A",
       Destination: "NYC",
-      Alerts: "None",
+      Alerts: "Urgent SKU",
+      Days_of_Service: "2",
       ExpandedData: {
         ProductNumber: "CB-1002",
         Pallets: "293",
@@ -36,6 +38,7 @@ const MenuHeadersSort = () => {
       Staging: "A",
       Destination: "Cleveland",
       Alerts: "None",
+      Days_of_Service: "8",
       ExpandedData: {
         ProductNumber: "DO-1015",
         Pallets: "342",
@@ -49,6 +52,7 @@ const MenuHeadersSort = () => {
       Staging: "B",
       Destination: "Chicago",
       Alerts: "Low days of service",
+      Days_of_Service: "-2",
       ExpandedData: {
         ProductNumber: "BQ-1017",
         Pallets: "25",
@@ -60,6 +64,17 @@ const MenuHeadersSort = () => {
   ];
 
   const sortedmock = mock.slice().sort((a, b) => Number(b.ID) - Number(a.ID));
+
+  const sortedData = row.Alert((a, b) => {
+    const aPriority =
+      a.Alert === "Urgent SKU" ? 2 : a.Alert === "Low days of service" ? 1 : 0;
+    const bPriority =
+      b.Alert === "Urgent SKU" ? 2 : b.Alert === "Low days of service" ? 1 : 0;
+
+    return sortConfig.direction === "asc"
+      ? aPriority - bPriority
+      : bPriority - aPriority;
+  });
 
   console.log(sortedmock);
 
@@ -152,6 +167,17 @@ const MenuHeadersSort = () => {
                 : "↓"
               : ""}
           </th>
+          <th
+            className="thheadstyles"
+            onClick={() => handleSort("Days_of_Service")}
+          >
+            Days of Service
+            {sortConfig.key === "Days_of_Service"
+              ? sortConfig.direction === "asc"
+                ? "↑"
+                : "↓"
+              : ""}
+          </th>
         </tr>
       </thead>
       <tbody id="plant-table-body">
@@ -191,10 +217,31 @@ const MenuHeadersSort = () => {
                   className="tdcontentwrapper"
                   style={{
                     backgroundColor:
-                      row.Alerts !== "None" ? "yellow" : "transparent",
+                      row.Alerts === "Low days of service"
+                        ? "#E23F44"
+                        : row.Alerts === "Urgent SKU"
+                        ? "yellow"
+                        : "transparent",
                   }}
                 >
                   <span className="tdcontentspan">{row.Alerts ?? "N/A"}</span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div
+                  className="tdcontentwrapper"
+                  style={{
+                    backgroundColor:
+                      row.Days_of_Service < "0"
+                        ? "#E23F44"
+                        : row.Days_of_Service > "0" && row.Days_of_Service < "7"
+                        ? "yellow"
+                        : "transparent",
+                  }}
+                >
+                  <span className="tdcontentspan">
+                    {row.Days_of_Service ?? "N/A"}
+                  </span>
                 </div>
               </td>
             </tr>

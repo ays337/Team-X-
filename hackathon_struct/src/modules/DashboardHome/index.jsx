@@ -12,9 +12,10 @@ const MenuHeaders = () => {
   const mock = [
     {
       ID: "1",
-      Staging: "Early",
+      Staging: "C",
       Destination: "Florida",
       Alerts: "None",
+      Days_of_Service: "3",
       ExpandedData: {
         ProductNumber: "DA-1001",
         Pallets: "25",
@@ -25,9 +26,10 @@ const MenuHeaders = () => {
     },
     {
       ID: "2",
-      Staging: "Early",
+      Staging: "A",
       Destination: "NYC",
-      Alerts: "None",
+      Alerts: "Urgent SKU",
+      Days_of_Service: "2",
       ExpandedData: {
         ProductNumber: "CB-1002",
         Pallets: "293",
@@ -38,26 +40,28 @@ const MenuHeaders = () => {
     },
     {
       ID: "3",
-      Staging: "Early",
+      Staging: "A",
       Destination: "Cleveland",
       Alerts: "None",
+      Days_of_Service: "8",
       ExpandedData: {
         ProductNumber: "DO-1015",
         Pallets: "342",
-        Status: "Backlog",
+        Status: "In Production",
         ProductName: "Polish F",
         Destination: "Warehouse Z",
       },
     },
     {
       ID: "4",
-      Staging: "Early",
+      Staging: "B",
       Destination: "Chicago",
       Alerts: "Low days of service",
+      Days_of_Service: "-2",
       ExpandedData: {
         ProductNumber: "BQ-1017",
         Pallets: "25",
-        Status: "Backlog",
+        Status: "Ready to Ship",
         ProductName: "Detergent A",
         Destination: "Warehouse X",
       },
@@ -76,6 +80,7 @@ const MenuHeaders = () => {
           <th className="thheadstyles">Staging</th>
           <th className="thheadstyles">Destination</th>
           <th className="thheadstyles">Alerts</th>
+          <th className="thheadstyles">Days_of_Service</th>
         </tr>
       </thead>
       <tbody id="plant-table-body">
@@ -108,6 +113,11 @@ const MenuHeaders = () => {
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
                   <span className="tdcontentspan">{row.Alerts}</span>
+                </div>
+              </td>
+              <td className="tdbodyleftstyles">
+                <div className="tdcontentwrapper">
+                  <span className="tdcontentspan">{row.Days_Of_Service}</span>
                 </div>
               </td>
             </tr>
