@@ -14,6 +14,18 @@ export const getAllTimes = createAsyncThunk(
   }
 );
 
+export const getWHDataThunk = createAsyncThunk(
+  "dashboardhome/getTime",
+  async (_, { dispatch }) => {
+    try {
+      const data = await dashboardHomeApi.getWHData();
+      dispatch(dashboardHomeActions.loadWHData(data));
+    } catch (error) {
+      console.error("Error retrieving times:", error);
+    }
+  }
+);
+
 export const addCurrentTime = createAsyncThunk(
   "dashboardhome/addTime",
   async (currentTime, { dispatch }) => {

@@ -6,6 +6,7 @@ import { addCurrentTime } from "store/thunks/dashboardhome-thunk";
 import { getAllTimes } from "store/thunks/dashboardhome-thunk";
 import MenuHeaders2 from "./components/MenuHeadersTest";
 import MenuHeadersSort from "./components/MenuHeadersTestSort";
+import { getWHDataThunk } from "store/thunks/dashboardhome-thunk";
 import "common/styles.css";
 
 const MenuHeaders = () => {
@@ -134,6 +135,10 @@ const DashboardHome = () => {
 
   useEffect(() => {
     dispatch(getAllTimes());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getWHDataThunk());
   }, [dispatch]);
 
   const handleAddTime = () => {

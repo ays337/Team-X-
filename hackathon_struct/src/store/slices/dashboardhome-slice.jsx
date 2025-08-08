@@ -7,6 +7,7 @@ const dashboardHomeSlice = createSlice({
   initialState: {
     previousTimes: [],
     currentTime: "",
+    wHData: [],
   },
   reducers: {
     loadCurrentTime(state, action) {
@@ -23,6 +24,11 @@ const dashboardHomeSlice = createSlice({
       state.previousTimes = previousTimes;
       console.log("Dashboard Home State Previous Times:", state.previousTimes);
       console.log("Dashboard Home Server Previous Times:", previousTimes);
+    },
+    loadWHData(state, action) {
+      const { wHData } = action.payload;
+      state.wHData = wHData;
+      console.log("Dashboard Home Server Previous Times:", wHData);
     },
   },
 });
