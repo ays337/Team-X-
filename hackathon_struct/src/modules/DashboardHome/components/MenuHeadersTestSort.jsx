@@ -65,17 +65,6 @@ const MenuHeadersSort = () => {
 
   const sortedmock = mock.slice().sort((a, b) => Number(b.ID) - Number(a.ID));
 
-  const sortedData = row.Alert((a, b) => {
-    const aPriority =
-      a.Alert === "Urgent SKU" ? 2 : a.Alert === "Low days of service" ? 1 : 0;
-    const bPriority =
-      b.Alert === "Urgent SKU" ? 2 : b.Alert === "Low days of service" ? 1 : 0;
-
-    return sortConfig.direction === "asc"
-      ? aPriority - bPriority
-      : bPriority - aPriority;
-  });
-
   console.log(sortedmock);
 
   const [expandedRows, setExpandedRows] = useState({});
