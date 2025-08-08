@@ -42,11 +42,6 @@ app.get("/", (_, res) => {
   res.send("Server is running!");
 });
 
-app.get("/getTime", (_, res) => {
-  console.log("Updated times:", timeCheck.previousTimes);
-  res.json({ previousTimes: timeCheck.previousTimes });
-});
-
 app.post("/addTime", (req, res) => {
   const { currentTime } = req.body;
   timeCheck.previousTimes.push(currentTime);

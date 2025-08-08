@@ -1,12 +1,5 @@
 import axios from "axios";
 
-export const getAlltimes = () => {
-  return axios.get("http://localhost:4000/getTime").then(({ data }) => {
-    console.log("This is from the server", data.previousTimes);
-    return data.previousTimes;
-  });
-};
-
 export const addCurrentTime = (currentTime) => {
   return axios.post("http://localhost:4000/addTime", { currentTime });
 };
@@ -16,5 +9,7 @@ export const addCurrentTimeDB = (currentTime) => {
 };
 
 export const getWHData = () => {
-  return axios.get("http://127.0.0.1:5000/access?alerts");
+  return axios.get("http://127.0.0.1:5000/access", {
+    params: { table: "alerts" },
+  });
 };
