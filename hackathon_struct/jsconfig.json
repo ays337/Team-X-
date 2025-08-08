@@ -2,18 +2,10 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "store/*": [
-        "store/*"
-      ],
-      "api/*": [
-        "api/*"
-      ],
-      "modules/*": [
-        "modules/*"
-      ]
+      "store/*": ["store/*"],
+      "api/*": ["api/*"],
+      "modules/*": ["modules/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
