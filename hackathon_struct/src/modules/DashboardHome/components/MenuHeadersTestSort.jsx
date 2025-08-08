@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import AlertsPage from "./AlertsPage";
 import AlertPopup from "./AlertPopup";
-import {} from "react-redux";
+import { useSelector } from "react-redux";
 import {} from "store/thunks/dashboardhome-thunk";
 import {} from "store/thunks/dashboardhome-thunk";
 import "common/styles.css";
 const MenuHeadersSort = () => {
+  const data = useSelector((state) => state.dashboardHome.wHData);
   const mock = [
     {
       sku_id: 1,
-      daysOfService: -3,
+      days_of_service: -3,
       pallets: 8,
       weight_lbs: 7000,
       remortgage_gallons: 1020,
       alert_type: "Low days of service",
       staging_lane: "Lane A",
       destination: "Warehouse X",
-      additionalDetails: {
+      additional_details: {
         product_number: "DA-1001",
         status: "In Production",
         Producation_estimated_completion: new Date(2023, 11, 2, 12, 0, 0),
@@ -28,14 +29,14 @@ const MenuHeadersSort = () => {
     },
     {
       sku_id: 2,
-      daysOfService: 4,
+      days_of_service: 4,
       pallets: 5,
       weight_lbs: 2000,
       remortgage_gallons: 7020,
       alert_type: "Dock Aging",
       staging_lane: "Lane B",
       destination: "Warehouse Y",
-      additionalDetails: {
+      additional_details: {
         product_number: "BQ-1007",
         status: "Ready to Ship",
         Producation_estimated_completion: new Date(2023, 11, 3, 12, 0, 0),
@@ -47,14 +48,14 @@ const MenuHeadersSort = () => {
     },
     {
       sku_id: 3,
-      daysOfService: 1,
+      days_of_service: 1,
       pallets: 3,
       weight_lbs: 3000,
       remortgage_gallons: 5020,
       alert_type: "Urgent SKU",
       staging_lane: "Lane C",
       destination: "Warehouse X",
-      additionalDetails: {
+      additional_details: {
         product_number: "RJ-1010",
         status: "Backlog",
         Producation_estimated_completion: new Date(2023, 11, 2, 2, 0, 0),
@@ -66,7 +67,7 @@ const MenuHeadersSort = () => {
     },
   ];
 
-  const sortedmock = mock
+  const sortedmock = data
     .slice()
     .sort((a, b) => Number(b.sku_id) - Number(a.sku_id));
 
@@ -74,10 +75,10 @@ const MenuHeadersSort = () => {
 
   // const [alertsToShow, setAlertsToShow] = useState([]);
 
-  const alertsToShow = mock.filter((row) => row.daysOfService < 0);
+  const alertsToShow = data.filter((row) => row.days_of_service < 0);
 
   // useEffect(() => {
-  //   const filteredAlerts = mock.filter((row) => row.daysOfService < 0);
+  //   const filteredAlerts = mock.filter((row) => row.days_of_service < 0);
   //   setAlertsToShow(filteredAlerts);
   // }, [mock]);
 
@@ -94,7 +95,7 @@ const MenuHeadersSort = () => {
     }));
   };
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
-  const sortedMock = mock.slice().sort((a, b) => {
+  const sortedMock = data.slice().sort((a, b) => {
     const aVal = a[sortConfig.key] ?? "";
     const bVal = b[sortConfig.key] ?? "";
 
@@ -201,10 +202,10 @@ const MenuHeadersSort = () => {
               </th>
               <th
                 className="thheadstyles"
-                onClick={() => handleSort("daysOfService")}
+                onClick={() => handleSort("days_of_service")}
               >
                 DOS
-                {sortConfig.key === "daysOfService"
+                {sortConfig.key === "days_of_service"
                   ? sortConfig.direction === "asc"
                     ? "↑"
                     : "↓"
@@ -303,15 +304,16 @@ const MenuHeadersSort = () => {
                       className="tdcontentwrapper"
                       style={{
                         backgroundColor:
-                          row.daysOfService < "0"
+                          row.days_of_service < "0"
                             ? "#E23F44"
-                            : row.daysOfService > "0" && row.daysOfService < "7"
+                            : row.days_of_service > "0" &&
+                              row.days_of_service < "7"
                             ? "yellow"
                             : "transparent",
                       }}
                     >
                       <span className="tdcontentspan">
-                        {row.daysOfService ?? "N/A"}
+                        {row.days_of_service ?? "N/A"}
                       </span>
                     </div>
                   </td>
@@ -376,7 +378,7 @@ const MenuHeadersSort = () => {
                       >
                         <strong>Expanded Data:</strong>
                         <ul style={{ marginTop: "5px" }}>
-                          {Object.entries(row.additionalDetails).map(
+                          {Object.entries(row.additional_details).map(
                             ([key, value]) => (
                               <li key={key}>
                                 <strong>{key}:</strong>
@@ -392,10 +394,10 @@ const MenuHeadersSort = () => {
                   </tr>
                 )}
 
-                {row.daysOfService < 0 && (
+                {row.days_of_service < 0 && (
                   <AlertPopup
                     key={`alert-${row.sku_id}`}
-                    message={`${row.sku_id} has a low DOS of ${row.daysOfService}`}
+                    message={`${row.sku_id} has a low DOS of ${row.days_of_service}`}
                     index={row.sku_id}
                   />
                 )}

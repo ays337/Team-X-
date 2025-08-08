@@ -9,7 +9,5 @@ export const addCurrentTimeDB = (currentTime) => {
 };
 
 export const getWHData = () => {
-  return axios.get("http://127.0.0.1:5000/access", {
-    params: { table: "alerts" },
-  });
+  return axios.get("http://127.0.0.1:5000/access");
 };

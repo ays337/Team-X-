@@ -7,7 +7,7 @@ export const getWHDataThunk = createAsyncThunk(
   async (_, { dispatch }) => {
     try {
       const response = await dashboardHomeApi.getWHData();
-      dispatch(dashboardHomeActions.loadWHData(response.data));
+      dispatch(dashboardHomeActions.loadWHData(response.data.data));
     } catch (error) {
       console.error("Error retrieving Warehouse Data:", error);
     }
