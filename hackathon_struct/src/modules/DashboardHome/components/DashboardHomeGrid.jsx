@@ -7,7 +7,7 @@ const DashboardHomeGrid = () => {
 
   return (
     <div className="home-grid">
-      <h1 className="home-title">Home Page</h1>
+      <h1 className="home-title">Warehouse Dashboard</h1>
       <div className="button-grid three-btn">
         <div className="button-with-label"></div>
       </div>

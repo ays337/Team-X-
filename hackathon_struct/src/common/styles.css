@@ -117,7 +117,7 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   display: flex;
-  background-image: linear-gradient(to bottom, #107cca, #022966 100%);
+  background-image: linear-gradient(to bottom, #d3d3d3, #e0e4ec 100%);
   margin-top: 6.4rem;
   border-radius: 0.5rem 0.5rem 0rem 0rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -141,7 +141,7 @@ body {
 .home-title {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(224, 226, 226);
+  color: black;
   margin-bottom: 1.5rem;
   text-align: center;
 }

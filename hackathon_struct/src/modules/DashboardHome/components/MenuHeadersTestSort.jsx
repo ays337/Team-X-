@@ -67,6 +67,13 @@ const MenuHeadersSort = () => {
     },
   ];
 
+  function camelCaseToTitle(str) {
+    return str
+      .replace(/_/g, " ") // replace underscores with spaces
+      .replace(/([a-z])([A-Z])/g, "$1 $2") // insert space before capital letters
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // capitalize first letter of each word
+  }
+
   const sortedmock = data
     .slice()
     .sort((a, b) => Number(b.sku_id) - Number(a.sku_id));
@@ -145,53 +152,65 @@ const MenuHeadersSort = () => {
 
   return (
     <>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Alert</div>
-        <select
-          value={alertFilter}
-          onChange={(e) => setAlertFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Low days of service">Low days of service</option>
-          <option value="Urgent SKU">Urgent SKU</option>
-        </select>
-      </div>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Destination</div>
-        <select
-          value={destinationFilter}
-          onChange={(e) => setDestinationFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Warehouse X">Warehouse X</option>
-          <option value="Warehouse Y">Warehouse Y</option>
-        </select>
-      </div>
-      <div className="filter-group">
-        <div className="filter-label">Filter by Staging</div>
-        <select
-          value={stagingFilter}
-          onChange={(e) => setStagingFilter(e.target.value)}
-          onMouseEnter={() => {
-            /* optional: show dropdown */
-          }}
-        >
-          <option value="">All</option>
-          <option value="Lane A">Lane A</option>
-          <option value="Lane B">Lane B</option>
-        </select>
-      </div>
       <div>
         <table className="tablestyles">
           <thead className="theadstyles">
             <tr className="trheadstyles">
-              <th className="thheadstyles">Select</th>
+              <th style={{ border: "none" }} colSpan={4}>
+                {" "}
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Alert</div>
+                  <select
+                    value={alertFilter}
+                    onChange={(e) => setAlertFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Low days of service">
+                      Low days of service
+                    </option>
+                    <option value="Urgent SKU">Urgent SKU</option>
+                  </select>
+                </div>
+              </th>
+              <th style={{ border: "none" }} colSpan={2}>
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Destination</div>
+                  <select
+                    value={destinationFilter}
+                    onChange={(e) => setDestinationFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Warehouse X">Warehouse X</option>
+                    <option value="Warehouse Y">Warehouse Y</option>
+                  </select>
+                </div>
+              </th>
+              <th style={{ border: "none" }} colSpan={2}>
+                <div className="filter-group">
+                  <div className="filter-label">Filter by Staging</div>
+                  <select
+                    value={stagingFilter}
+                    onChange={(e) => setStagingFilter(e.target.value)}
+                    onMouseEnter={() => {
+                      /* optional: show dropdown */
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="Lane A">Lane A</option>
+                    <option value="Lane B">Lane B</option>
+                  </select>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <thead className="theadstyles">
+            <tr className="trheadstyles">
               <th className="thheadstyles" onClick={() => handleSort("sku_id")}>
                 ID
                 {sortConfig.key === "sku_id"
@@ -237,7 +256,7 @@ const MenuHeadersSort = () => {
                 className="thheadstyles"
                 onClick={() => handleSort("remortgage_gallons")}
               >
-                Remortgage_gallons
+                Remortgage Gallons
                 {sortConfig.key === "remortgage_gallons"
                   ? sortConfig.direction === "asc"
                     ? "↑"
@@ -286,17 +305,14 @@ const MenuHeadersSort = () => {
                   <td className="tdbodyleftstyles">
                     <div className="tdcontentwrapper">
                       <span className="tdcontentspan">
+                        {" "}
                         <input
                           type="checkbox"
                           checked={expandedRows[row.sku_id] === true}
                           onChange={() => toggleRow(row.sku_id)}
                         />
+                        {row.sku_id}
                       </span>
-                    </div>
-                  </td>
-                  <td className="tdbodyleftstyles">
-                    <div className="tdcontentwrapper">
-                      <span className="tdcontentspan">{row.sku_id}</span>
                     </div>
                   </td>
                   <td className="tdbodyleftstyles">
@@ -381,13 +397,29 @@ const MenuHeadersSort = () => {
                           {Object.entries(row.additional_details).map(
                             ([key, value]) => (
                               <li key={key}>
-                                <strong>{key}:</strong>
+                                <strong>{camelCaseToTitle(key)}:</strong>{" "}
                                 {value instanceof Date
                                   ? value.toLocaleString()
                                   : value}
                               </li>
                             )
                           )}
+
+                          <span>
+                            Dock aging:{" "}
+                            {row.dockLast_refresh instanceof Date &&
+                            !isNaN(row.dockLast_refresh.getTime())
+                              ? (() => {
+                                  const days = Math.floor(
+                                    (new Date() - row.dockLast_refresh) /
+                                      (1000 * 60 * 60 * 24)
+                                  );
+                                  return `${days} day${
+                                    days !== 1 ? "s" : ""
+                                  } since last stage`;
+                                })()
+                              : "N/A"}
+                          </span>
                         </ul>
                       </div>
                     </td>
