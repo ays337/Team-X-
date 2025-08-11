@@ -12,6 +12,11 @@ Before starting, ensure you have Node JS and Git installed:
 - **With Admin Access**: [Download from Git official site](https://git-scm.com/downloads)
 - **Without Admin Access**: Refer to the [**Git Workaround Doc**](https://swcompany-my.sharepoint.com/:w:/g/personal/anthony_safo_sherwin_com/EXtNbBNhsJ1IuJnHRrrljJIBeqpZ1EkQ4fs-_hXa3EFR_w?e=pbz6y1)
 
+### Backend
+This Repo is meant to be used as a front end app for the backend server here:
+
+https://github.com/jcs388/rdp-hackathon-team-4-backend/tree/main
+> Please ensure you have both repos cloned and have both this frontend app and the server in the other repo running.
 <br/>
 
 ## 🧭 Project Setup
@@ -51,7 +56,6 @@ cd hackathon_struct
 npm run dev
 ```
 
-
 ### 3. Open the App
 - Once both the server and app are running, open your browser and go to:
 ```bash
@@ -59,8 +63,6 @@ http://localhost:5173/
 ```
 >Or whatever your local development server address is
 
-- You should now see the starter template app running.
-
-<img width="1908" height="712" alt="image" src="https://github.com/user-attachments/assets/e5922d72-f7d4-4e63-8561-599927fc9a07" />
+- You should now see the app running.
 
 <br/>
