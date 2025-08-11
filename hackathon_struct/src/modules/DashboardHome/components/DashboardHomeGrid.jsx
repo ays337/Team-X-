@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import "common/styles.css";
 
 const DashboardHomeGrid = () => {
-  const dispatch = useDispatch();
-
   return (
     <div className="home-grid">
       <h1 className="home-title">Warehouse Dashboard</h1>

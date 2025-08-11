@@ -9,7 +9,7 @@ const AlertPopup = ({ message, index }) => {
     <div
       style={{
         position: "fixed",
-        bottom: `${20 + index * 70}px`, // stack alerts vertically
+        bottom: `${20 + index * 20}px`, // stack alerts vertically
         right: "20px",
         backgroundColor: "#f44336",
         color: "white",

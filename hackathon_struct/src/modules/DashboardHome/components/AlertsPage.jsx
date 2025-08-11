@@ -31,29 +31,36 @@ const AlertsPage = ({ sortedmock }) => {
       <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
         Notifications Panel
       </div>
-
-      {alertRows && alertRows.length > 0 ? (
-        alertRows.map((row, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundColor: "#fff",
-              padding: "12px",
-              borderRadius: "6px",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            }}
-          >
-            Alert for ID {row.sku_id}: <br />
-            Potential causes of error in these fields: <br />
-            Alert message: {row.alert_type} <br />
-            DOS: {row.days_of_service} <br />
-            Remortgage Gallons: {row.remortgage_gallons}
-            <br />
-          </div>
-        ))
-      ) : (
-        <div>No alerts found.</div>
-      )}
+      {alertRows.map((row, index) => (
+        <div
+          key={index}
+          style={{
+            backgroundColor: "#fff",
+            padding: "12px",
+            borderRadius: "6px",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          }}
+        >
+          Alert for ID {row.sku_id}: <br />
+          Potential causes of error in these fields: <br />
+          {row.alert_type && (
+            <>
+              Alert message: {row.alert_type} <br />
+            </>
+          )}
+          {row.days_of_service != null && row.days_of_service < 4 && (
+            <>
+              DOS: {row.days_of_service} <br />
+            </>
+          )}
+          {row.remortgage_gallons > 1100 && (
+            <>
+              Remortgage Gallons: {row.remortgage_gallons} <br />
+            </>
+          )}
+        </div>
+      ))}
+      {alertRows.length === 0 && <div>No alerts found.</div>}
     </div>
   );
 };

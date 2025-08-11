@@ -21,15 +21,6 @@ const MenuHeadersSort = () => {
 
   console.log(sortedmock);
 
-  // const [alertsToShow, setAlertsToShow] = useState([]);
-
-  // const alertsToShow = data.filter((row) => row.days_of_service < 0);
-
-  // useEffect(() => {
-  //   const filteredAlerts = mock.filter((row) => row.days_of_service < 0);
-  //   setAlertsToShow(filteredAlerts);
-  // }, [mock]);
-
   const [expandedRows, setExpandedRows] = useState({});
   //Create a state to toggle on or off expaded view (Use an object so we can link the rowID with true/false  {rowID:t/f, rowID:t/f ..})
 
@@ -82,7 +73,6 @@ const MenuHeadersSort = () => {
           direction: prev.direction === "asc" ? "desc" : "asc",
         };
       } else {
-        // First time clicking this key → start with descending
         return {
           key,
           direction: "desc",
@@ -104,9 +94,7 @@ const MenuHeadersSort = () => {
                   <select
                     value={alertFilter}
                     onChange={(e) => setAlertFilter(e.target.value)}
-                    onMouseEnter={() => {
-                      /* optional: show dropdown */
-                    }}
+                    onMouseEnter={() => {}}
                   >
                     <option value="">All</option>
                     <option value="Low days of service">
@@ -122,9 +110,7 @@ const MenuHeadersSort = () => {
                   <select
                     value={destinationFilter}
                     onChange={(e) => setDestinationFilter(e.target.value)}
-                    onMouseEnter={() => {
-                      /* optional: show dropdown */
-                    }}
+                    onMouseEnter={() => {}}
                   >
                     <option value="">All</option>
                     <option value="Warehouse X">Warehouse X</option>
@@ -138,9 +124,7 @@ const MenuHeadersSort = () => {
                   <select
                     value={stagingFilter}
                     onChange={(e) => setStagingFilter(e.target.value)}
-                    onMouseEnter={() => {
-                      /* optional: show dropdown */
-                    }}
+                    onMouseEnter={() => {}}
                   >
                     <option value="">All</option>
                     <option value="Lane A">Lane A</option>
@@ -241,7 +225,7 @@ const MenuHeadersSort = () => {
           </thead>
           <tbody id="plant-table-body">
             {filteredMock.map((row) => (
-              <>
+              <React.Fragment key={row.sku_id}>
                 <tr className="trbodystyles" key={row.sku_id}>
                   <td className="tdbodyleftstyles">
                     <div className="tdcontentwrapper">
@@ -338,7 +322,7 @@ const MenuHeadersSort = () => {
                         <ul style={{ marginTop: "5px" }}>
                           {Object.entries(row.additional_details).map(
                             ([key, value]) => (
-                              <li key={key}>
+                              <li key={`${row.sku_id}-${key}`}>
                                 <strong>{camelCaseToTitle(key)}:</strong>{" "}
                                 {value instanceof Date
                                   ? value.toLocaleString()
@@ -368,14 +352,15 @@ const MenuHeadersSort = () => {
                   </tr>
                 )}
 
-                {row.days_of_service < 0 && (
+                {row.additional_details?.alert_message ===
+                  "Low days of service" && (
                   <AlertPopup
                     key={`alert-${row.sku_id}`}
-                    message={`${row.sku_id} has a low DOS of ${row.days_of_service}`}
+                    message={`SKUID: ${row.sku_id} has a low DOS of ${row.days_of_service}`}
                     index={row.sku_id}
                   />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>
