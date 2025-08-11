@@ -4,7 +4,7 @@ import MenuHeadersSort from "./MenuHeadersTestSort";
 const AlertsPage = ({ sortedmock }) => {
   const alertRows = sortedmock?.filter(
     (row) =>
-      row.daysOfService < 0 ||
+      row.days_of_service < 0 ||
       row.alert_type === "Low days of service" ||
       row.remortgage_gallons > 1100
   );
@@ -46,7 +46,7 @@ const AlertsPage = ({ sortedmock }) => {
             Alert for ID {row.sku_id}: <br />
             Potential causes of error in these fields: <br />
             Alert message: {row.alert_type} <br />
-            DOS: {row.daysOfService} <br />
+            DOS: {row.days_of_service} <br />
             Remortgage Gallons: {row.remortgage_gallons}
             <br />
           </div>

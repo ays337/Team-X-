@@ -7,7 +7,7 @@ const MenuHeaders2 = () => {
   const mock = [
     {
       sku_id: 1,
-      daysOfService: 3,
+      days_of_service: 3,
       pallets: 8,
       weight_lbs: 7000,
       remortgage_gallons: 1020,
@@ -26,7 +26,7 @@ const MenuHeaders2 = () => {
     },
     {
       sku_id: 2,
-      daysOfService: 4,
+      days_of_service: 4,
       pallets: 5,
       weight_lbs: 2000,
       remortgage_gallons: 7020,
@@ -45,7 +45,7 @@ const MenuHeaders2 = () => {
     },
     {
       sku_id: 3,
-      daysOfService: 1,
+      days_of_service: 1,
       pallets: 3,
       weight_lbs: 3000,
       remortgage_gallons: 5020,
@@ -119,7 +119,7 @@ const MenuHeaders2 = () => {
               <td className="tdbodyleftstyles">
                 <div className="tdcontentwrapper">
                   <span className="tdcontentspan">
-                    {row.daysOfService ?? "N/A"}
+                    {row.days_of_service ?? "N/A"}
                   </span>
                 </div>
               </td>
