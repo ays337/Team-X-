@@ -1,7 +1,6 @@
-import DashboardHomeGrid from "../../modules/DashboardHome/components/DashboardHomeGrid";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import MenuHeadersSort from "./components/MenuHeadersTestSort";
+import WHData from "./components/WHData";
 import { getWHDataThunk } from "store/thunks/dashboardhome-thunk";
 import "common/styles.css";
 
@@ -14,8 +13,13 @@ const DashboardHome = () => {
 
   return (
     <div className="home-container">
-      <DashboardHomeGrid />
-      <MenuHeadersSort />
+      <div className="home-grid">
+        <h1 className="home-title">Warehouse Dashboard</h1>
+        <div className="button-grid three-btn">
+          <div className="button-with-label"></div>
+        </div>
+      </div>
+      <WHData />
     </div>
   );
 };
