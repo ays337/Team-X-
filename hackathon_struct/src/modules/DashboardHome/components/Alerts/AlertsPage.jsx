@@ -1,8 +1,8 @@
 import React from "react";
-import MenuHeadersSort from "./MenuHeadersTestSort";
+import "common/styles.css";
 
-const AlertsPage = ({ sortedmock }) => {
-  const alertRows = sortedmock?.filter(
+const AlertsPage = ({ sortedMock }) => {
+  const alertRows = sortedMock?.filter(
     (row) =>
       row.days_of_service < 0 ||
       row.alert_type === "Low days of service" ||
@@ -10,37 +10,12 @@ const AlertsPage = ({ sortedmock }) => {
   );
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        height: "100vh",
-        width: "250px",
-        backgroundColor: "#e6f4ff",
-        padding: "16px 16px 16px 20px",
-        borderTopRightRadius: "8px",
-        borderBottomRightRadius: "8px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        overflowY: "auto",
-        zIndex: 1000,
-      }}
-    >
+    <div className="notif-container">
       <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
         Notifications Panel
       </div>
       {alertRows.map((row, index) => (
-        <div
-          key={index}
-          style={{
-            backgroundColor: "#fff",
-            padding: "12px",
-            borderRadius: "6px",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}
-        >
+        <div key={index} className="notif-card">
           Alert for ID {row.sku_id}: <br />
           Potential causes of error in these fields: <br />
           {row.alert_type && (
