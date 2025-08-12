@@ -11,7 +11,7 @@ const dashboardHomeSlice = createSlice({
     loadWHData(state, action) {
       const wHData = action.payload;
       state.wHData = wHData;
-      console.log("Dashboard Home Server Previous Times:", wHData);
+      console.log("WareHouseData Loading", wHData);
     },
   },
 });

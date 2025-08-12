@@ -15,12 +15,6 @@ const MenuHeadersSort = () => {
       .replace(/\b\w/g, (char) => char.toUpperCase()); // capitalize first letter of each word
   }
 
-  const sortedmock = data
-    .slice()
-    .sort((a, b) => Number(b.sku_id) - Number(a.sku_id));
-
-  console.log(sortedmock);
-
   const [expandedRows, setExpandedRows] = useState({});
   //Create a state to toggle on or off expaded view (Use an object so we can link the rowID with true/false  {rowID:t/f, rowID:t/f ..})
 
@@ -33,7 +27,9 @@ const MenuHeadersSort = () => {
       //So essentially spread the state, update the key to the negation
     }));
   };
+
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
+
   const sortedMock = data.slice().sort((a, b) => {
     const aVal = a[sortConfig.key] ?? "";
     const bVal = b[sortConfig.key] ?? "";
@@ -55,7 +51,10 @@ const MenuHeadersSort = () => {
   const [stagingFilter, setStagingFilter] = useState("");
 
   const filteredMock = sortedMock.filter((row) => {
+    //loop thorugh each row, add the rows that match the fitlering critera
     const alertMatch = alertFilter ? row.alert_type === alertFilter : true;
+    //if alertFilter exist (the state is not ""), then compare the current rows alert type to the alert filter. If they match then for that row set alertMatch to true. This row is added to filtered results
+    //If alertFilter is empty(no filter selected) alertMatch is true, so that all rows are selected
     const destinationMatch = destinationFilter
       ? row.destination === destinationFilter
       : true;
@@ -63,7 +62,9 @@ const MenuHeadersSort = () => {
       ? row.staging_lane === stagingFilter
       : true;
     return alertMatch && destinationMatch && stagingMatch;
+    //If a row passes all 3 criteria, it is included in the filtered results, the default : true for each filter ensures that all rows are selected if no filter is applied(i.e filtering only needs to pass one criteria IF one filter is applied)
   });
+
   const handleSort = (key) => {
     setSortConfig((prev) => {
       if (prev.key === key) {
@@ -354,18 +355,22 @@ const MenuHeadersSort = () => {
 
                 {row.additional_details?.alert_message ===
                   "Low days of service" && (
-                  <AlertPopup
-                    key={`alert-${row.sku_id}`}
-                    message={`SKUID: ${row.sku_id} has a low DOS of ${row.days_of_service}`}
-                    index={row.sku_id}
-                  />
+                  <tr>
+                    <td colSpan={8}>
+                      <AlertPopup
+                        key={`alert-${row.sku_id}`}
+                        message={`SKUID: ${row.sku_id} has a low DOS of ${row.days_of_service}`}
+                        index={row.sku_id}
+                      />
+                    </td>
+                  </tr>
                 )}
               </React.Fragment>
             ))}
           </tbody>
         </table>
 
-        <AlertsPage sortedmock={sortedmock} />
+        <AlertsPage sortedmock={sortedMock} />
       </div>
     </>
   );

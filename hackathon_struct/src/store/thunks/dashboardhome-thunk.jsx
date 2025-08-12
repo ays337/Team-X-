@@ -3,7 +3,7 @@ import * as dashboardHomeApi from "api/dashboardhome";
 import { dashboardHomeActions } from "store/slices/dashboardhome-slice";
 
 export const getWHDataThunk = createAsyncThunk(
-  "dashboardhome/getTime",
+  "dashboardhome/getWHDataThunk",
   async (_, { dispatch }) => {
     try {
       const response = await dashboardHomeApi.getWHData();
