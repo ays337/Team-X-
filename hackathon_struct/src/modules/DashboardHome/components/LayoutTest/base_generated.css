@@ -1,0 +1,136 @@
+.section-top-banner {
+  box-sizing: border-box;
+  height: 368px;
+  padding-bottom: 64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  background-image: linear-gradient(to bottom, #107cca, #022966 100%);
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  border-radius: 0; /* no outline */
+}
+
+.section-surface-1 {
+  box-sizing: border-box;
+  background-color: rgb(221, 225, 232);
+  padding-left: 64px;
+  padding-right: 64px;
+  width: 100vw;
+  min-height: 600px; /* just for shape, adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container-grid-1 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1312px;
+  padding-bottom: 64px;
+  top: -50px;
+  width: 100%;
+  border-radius: 6px;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* or any fixed height you want */
+}
+.table-separator {
+  position: sticky;
+  top: 104px; /* below toolbar-outline */
+  z-index: 10;
+  width: 100%; /* match table width */
+  padding-top: 8px; /* creates the gap */
+  padding-bottom: 8px;
+  background-color: #dde1e8;
+  /* Remove flex, gap, justify-content, etc. */
+}
+.table-toolbar-outline {
+  width: calc(100% - 4px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 2px 0 2px 2px;
+  display: grid;
+  grid-auto-flow: column dense;
+  align-items: center;
+  justify-items: center;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-height: 104px;
+  max-width: 100%;
+}
+
+.invoice-table {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  background: none;
+}
+
+.invoice-table-thead {
+  position: sticky;
+  z-index: 10;
+  background-color: #4086ff;
+}
+
+.invoice-table-tr {
+  top: 122px; /* toolbar height + separator gap */
+  z-index: 10;
+  border-radius: 6px;
+  border-bottom: 2px solid #dde1e8;
+  border-style: solid;
+  border-color: #dde1e8;
+  background: #fff;
+}
+
+.invoice-table th {
+  background: #fff;
+  position: sticky;
+  top: 106px; /* adjust to match toolbar/separator height */
+  z-index: 12;
+}
+
+.invoice-table-row {
+  background: #fff;
+  height: 40px;
+}
+
+.invoice-table td {
+  padding: 8px;
+}
+
+.invoice-table-row {
+  background: #fff;
+  height: 100px;
+}
+
+/* gap matches sticky separator height */
+/* .invoice-table-row + .invoice-table-row {
+  border-top: 16px solid #dde1e8; 
+} */
+
+.invoice-table {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-collapse: separate; /* important for spacing */
+  border-spacing: 0 8px; /* vertical gap between rows */
+  border-radius: 2px;
+  background: none;
+}
+/* Optional: Make the gap more visible by rounding the row corners */
+.invoice-table-row {
+  border-radius: 8px;
+  overflow: hidden;
+}

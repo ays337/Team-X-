@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import AlertsPage from "./Alerts/AlertsPage";
 import AlertPopup from "./Alerts/AlertPopup";
 import { useSelector } from "react-redux";
-import "common/styles.css";
+// import "common/styles.css";
+import "../components/LayoutTest/base.css"; // Importing the base styles for layout
 import FilterHeader from "./Table/FilterHeader";
 import TableHeader from "./Table/TableHeader";
 import TableRow from "./Table/TableRow";
@@ -15,14 +16,14 @@ const WHData = () => {
   return (
     <>
       <div>
+        <FilterHeader data={sortedMock} onFilteredChange={setFilteredMock} />
         <table className="tablestyles">
-          <FilterHeader data={sortedMock} onFilteredChange={setFilteredMock} />
           <TableHeader data={data} onSortChange={setSortedMock} />
           <TableRow data={filteredMock} />
         </table>
-        <AlertsPage sortedMock={sortedMock} />
-        <AlertPopup data={data} />
       </div>
+      <AlertsPage sortedMock={sortedMock} />
+      <AlertPopup data={data} />
     </>
   );
 };

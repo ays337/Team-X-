@@ -1,6 +1,74 @@
+/* ------------------------ */
+/* Testing  Base Layout Containers */
+/* ------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+section,
+.your-wrapper-class {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+h2 {
+  margin: 0;
+}
 body {
-  font-family: "Inter", sans-serif;
-  background-color: rgba(234, 237, 241, 0.89);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.base-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: 5415.09px;
+  width: 100%; /* or 100% */
+  max-width: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  background-color: rgb(182, 2, 2);
+}
+.section-top-banner {
+  box-sizing: border-box;
+  display: block;
+  height: 368px; /* from .md:swdc-h-[368px] */ /* from computed styles */
+  padding-bottom: 64px; /* from .swdc-pb-8 (var(--swdc-spacer-8)) */
+  padding-left: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
+  padding-right: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
+  font-family: SWDropcloth, var(--swdc-text-family-system), ui-sans-serif,
+    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.65;
+  tab-size: 4;
+  text-size-adjust: 100%;
+  background-image: linear-gradient(to bottom, #107cca, #022966 100%);
+  width: 100%; /* or 100% */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.section-surface-1 {
+  box-sizing: border-box;
+  display: block;
+  height: 5045.1px;
+  padding-left: 64px;
+  padding-right: 64px;
+  width: 100%; /* or 100% */
+  max-width: 100%;
+  text-size-adjust: 100%;
+  font-family: SWDropcloth;
+  font-feature-settings: normal;
+  font-size: 16px;
+  font-variation-settings: normal;
+  line-height: 26.4px;
+  tab-size: 4;
+  background-color: rgb(221, 225, 232);
 }
 
 /* ------------------------ */
@@ -12,7 +80,9 @@ body {
 }
 
 .notif-container {
-  position: fixed;
+  /* position: fixed; */
+  /* remove this to place elsewhere on page */
+
   top: 0;
   left: 0;
   height: 100vh;
@@ -28,6 +98,18 @@ body {
   z-index: 1000;
 }
 
+.noti-title {
+  background-image: linear-gradient(to bottom, #d3d3d3, #e0e4ec 100%);
+  font-weight: bold;
+  margin-bottom: 8px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  justify-content: center;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .notif-card {
   background-color: #fff;
   padding: 12px;

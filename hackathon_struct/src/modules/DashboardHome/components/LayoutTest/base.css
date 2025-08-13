@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+section,
+.your-wrapper-class {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+h2 {
+  margin: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.base-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: 5415.09px;
+  width: 100%; /* or 100% */
+  max-width: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  background-color: rgb(182, 2, 2);
+}
+.section-top-banner {
+  box-sizing: border-box;
+  display: block;
+  height: 368px; /* from .md:swdc-h-[368px] */ /* from computed styles */
+  padding-bottom: 64px; /* from .swdc-pb-8 (var(--swdc-spacer-8)) */
+  padding-left: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
+  padding-right: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
+  font-family: SWDropcloth, var(--swdc-text-family-system), ui-sans-serif,
+    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.65;
+  tab-size: 4;
+  text-size-adjust: 100%;
+  background-image: linear-gradient(to bottom, #107cca, #022966 100%);
+  width: 100vw; /* or 100% */
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.section-surface-1 {
+  box-sizing: border-box;
+  display: block;
+  height: 5045.1px;
+  padding-left: 64px;
+  padding-right: 64px;
+  width: 2116.67px;
+  text-size-adjust: 100%;
+  font-family: SWDropcloth;
+  font-feature-settings: normal;
+  font-size: 16px;
+  font-variation-settings: normal;
+  line-height: 26.4px;
+  tab-size: 4;
+  background-color: rgb(221, 225, 232);
+}
+.container-grid-1 {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  height: 5121.55px;
+  /* Remove or comment out, when table is added*/
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1312px;
+  padding-bottom: 64px;
+  top: -50px;
+  width: 100%;
+  text-size-adjust: 100%;
+  font-family: SWDropcloth;
+  font-feature-settings: normal;
+  font-size: 16px;
+  font-variation-settings: normal;
+  line-height: 26.4px;
+  tab-size: 4;
+}

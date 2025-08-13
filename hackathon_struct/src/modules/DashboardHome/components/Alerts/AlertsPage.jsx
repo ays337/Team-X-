@@ -1,5 +1,6 @@
 import React from "react";
-import "common/styles.css";
+// import "common/styles.css";
+import "../LayoutTest/base.css";
 
 const AlertsPage = ({ sortedMock }) => {
   const alertRows = sortedMock?.filter(
@@ -11,9 +12,7 @@ const AlertsPage = ({ sortedMock }) => {
 
   return (
     <div className="notif-container">
-      <div style={{ fontWeight: "bold", marginBottom: "8px" }}>
-        Notifications Panel
-      </div>
+      <div className="noti-title">Notifications Panel</div>
       {alertRows.map((row, index) => (
         <div key={index} className="notif-card">
           Alert for ID {row.sku_id}: <br />

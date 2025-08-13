@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DashboardHome from "./modules/DashboardHome";
-import "./common/styles.css";
+// import "./common/styles.css";
+import "../src/modules/DashboardHome/components/LayoutTest/base.css";
 
 function App() {
   const router = createBrowserRouter([

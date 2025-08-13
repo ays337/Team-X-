@@ -1,0 +1,131 @@
+
+Div Class with tailwind [Section 0]
+
+<div class="swdc-text-primary swdc-relative swdc-bg-white swdc-font-[SWDropcloth]" id="proaccountgateway-wrapper">
+
+
+Computed Styles [Section 1]
+
+
+1) Layout
+position: relative (derived from .swdc-relative)
+box-sizing: border-box (
+derived from inherit *, *:: before, *:: after 
+and also border-box *, *:: before, *:: after
+)
+display: block (derived from block div)
+height: 5415.09px (derived from idk)
+width: 2116.67px (derived from idk)
+
+2) Text
+text-size-adjust: 100% (derived from idk)
+
+font-family: SWDropcloth, (derived from swdc-font-\[SWDropcloth]) 
+var (--swdc-text-family-system), (derived from body) 
+ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" (derived from html, :host)
+
+font-feature-settings: normal (derived from html, :host)
+font-size: 16px (derived from 1rem body)
+font-variation-settings: normal (derived from html, :host)
+
+line-height: 26.4px
+1.65rem(derived from body)
+inherit(derived from body)
+1.5rem(derived from html, :host)
+
+tab-size: 4 (derived from html, :host)
+
+3) Appereance 
+background-color: rgb(255,255,255) (derived from rgb(var(--swdc-color-white)).swdc-bg-white)
+border-bottom-color: rgb(0,0,0) (derived from current color *, ::before,::after)
+border-bottom-style: solid (derived from solid *,::before,::after)
+border-bottom-width 0px (derived from 0px *, ::before, ::after)
+border-left-color: rgb(0,0,0) (derived from current color *, ::before,::after)
+border-left-style: solid (derived from solid *,::before,::after)
+border-left-width 0px (derived from 0px *, ::before, ::after)
+border-right-color: rgb(0,0,0) (derived from current color *, ::before,::after)
+border-right-style: solid (derived from solid *,::before,::after)
+border-right-width 0px (derived from 0px *, ::before, ::after)right
+border-top-color: rgb(0,0,0) (derived from current color *, ::before,::after)
+border-top-style: solid (derived from solid *,::before,::after)
+border-top-width 0px (derived from 0px *, ::before, ::after)right
+
+
+
+Copied from Styles Tab [Section 2]
+
+<style> element.style {
+}
+
+<style> .swdc-font-\[SWDropcloth\] {
+    font-family: SWDropcloth;
+}
+
+<style> .swdc-bg-white {
+    background-color: rgb(var(--swdc-color-white));
+}
+
+<style> .swdc-relative {
+    position: relative;
+}
+
+<style> *, *::before, *::after {
+    box-sizing: inherit;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box; (striked through)
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.65;
+    font-family: var(--swdc--text-family-system); (striked through)
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; (striked-through)
+}
+
+(Inherited from body)
+body {
+    min-height: 100vh; (greyed, unchangeable)
+    line-height: 1.65;
+   
+}
+
+Pseudo ::before element 
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+<style>
+::before, ::after {
+    --tw-content: '';
+}
+<style>
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+}
+Pseudo ::after element 
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+<style>
+::before, ::after {
+    --tw-content: '';
+}
+<style>
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor
+}
+
+
+
