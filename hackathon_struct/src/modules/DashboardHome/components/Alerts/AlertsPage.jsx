@@ -1,5 +1,4 @@
 import React from "react";
-// import "common/styles.css";
 import "../LayoutTest/base_generated.css";
 
 const AlertsPage = ({ sortedMock }) => {
@@ -11,10 +10,19 @@ const AlertsPage = ({ sortedMock }) => {
   );
 
   return (
-    <div className="notif-container">
-      <div className="noti-title">Notifications Panel</div>
+    <div className="alerts-panel-left">
+      <div
+        style={{
+          fontSize: "1.25rem",
+          fontWeight: "bold",
+          marginBottom: "0.75rem",
+          fontFamily: "'Google Sans Code', sans-serif",
+        }}
+      >
+        Notifications Panel
+      </div>
       {alertRows.map((row, index) => (
-        <div key={index} className="notif-card">
+        <div key={index} className="notif-card" style={{}}>
           Alert for ID {row.sku_id}: <br />
           Potential causes of error in these fields: <br />
           {row.alert_type && (

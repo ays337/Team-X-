@@ -1,5 +1,5 @@
 import React from "react";
-// import AlertsPage from "./Alerts/AlertsPage";
+import AlertsPage from "../Alerts/AlertsPage";
 import AlertPopup from "../Alerts/AlertPopup";
 import { useSelector } from "react-redux";
 import "common/styles.css";
@@ -59,9 +59,9 @@ const WHData_Test = () => {
             </table>
           </div>
         </section>
+        <AlertsPage sortedMock={filteredMock} />
+        <AlertPopup data={filteredMock} />
       </div>
-      {/* <AlertsPage sortedMock={sortedMock} /> */}
-      <AlertPopup data={filteredMock} />
     </>
   );
 };

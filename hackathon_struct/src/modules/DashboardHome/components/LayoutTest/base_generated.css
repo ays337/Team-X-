@@ -186,3 +186,33 @@
 .tdcontentwrapper {
   border-left: 2px solid rgb(221, 225, 232); /* Use your surface-2 color */
 }
+
+.alerts-panel-left {
+  position: absolute;
+  left: 20px;
+  top: 370px;
+  width: 230px;
+  max-height: 1875px;
+  overflow-y: scroll;
+  z-index: 100;
+  background: rgb(221, 225, 232);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 12px;
+  border: 0px solid #dde1e8;
+  scrollbar-width: none;
+}
+
+.alerts-panel-left::-webkit-scrollbar {
+  display: none;
+}
+
+.notif-card {
+  background: #fff;
+  border: 1px solid #ffcccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #d32f2f;
+  font-family: "Google Sans Code", monospace;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
