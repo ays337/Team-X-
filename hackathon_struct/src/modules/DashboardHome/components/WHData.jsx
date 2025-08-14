@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import AlertsPage from "./Alerts/AlertsPage";
 import AlertPopup from "./Alerts/AlertPopup";
 import { useSelector } from "react-redux";
-// import "common/styles.css";
-import "../components/LayoutTest/base.css"; // Importing the base styles for layout
+// import "../components/LayoutTest/base.css"; // Importing the base styles for layout
+import "../components/LayoutTest/base_generated.css";
 import FilterHeader from "./Table/FilterHeader";
 import TableHeader from "./Table/TableHeader";
 import TableRow from "./Table/TableRow";
@@ -13,10 +13,14 @@ const WHData = () => {
   const [sortedMock, setSortedMock] = useState(data);
   const [filteredMock, setFilteredMock] = useState(sortedMock);
 
+  const onFilteredChange = useCallback((filtered) => {
+    setFilteredMock(filtered);
+  }, []);
+
   return (
     <>
       <div>
-        <FilterHeader data={sortedMock} onFilteredChange={setFilteredMock} />
+        <FilterHeader data={sortedMock} onFilteredChange={onFilteredChange} />
         <table className="tablestyles">
           <TableHeader data={data} onSortChange={setSortedMock} />
           <TableRow data={filteredMock} />

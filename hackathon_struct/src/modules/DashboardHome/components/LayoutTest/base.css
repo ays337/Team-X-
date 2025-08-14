@@ -3,6 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
 body,
 section,
 .your-wrapper-class {
@@ -21,15 +22,6 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.base-wrapper {
-  position: relative;
-  box-sizing: border-box;
-  height: 5415.09px;
-  width: 100%; /* or 100% */
-  max-width: 100%;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  background-color: rgb(182, 2, 2);
-}
 .section-top-banner {
   box-sizing: border-box;
   display: block;
@@ -37,9 +29,6 @@ body {
   padding-bottom: 64px; /* from .swdc-pb-8 (var(--swdc-spacer-8)) */
   padding-left: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
   padding-right: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
-  font-family: SWDropcloth, var(--swdc-text-family-system), ui-sans-serif,
-    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 16px;
   line-height: 1.65;
   tab-size: 4;
@@ -52,12 +41,10 @@ body {
 .section-surface-1 {
   box-sizing: border-box;
   display: block;
-  height: 5045.1px;
   padding-left: 64px;
   padding-right: 64px;
-  width: 2116.67px;
   text-size-adjust: 100%;
-  font-family: SWDropcloth;
+  font-family: "Google Sans Code", sans-serif;
   font-feature-settings: normal;
   font-size: 16px;
   font-variation-settings: normal;
@@ -69,7 +56,6 @@ body {
   position: relative;
   box-sizing: border-box;
   display: block;
-  height: 5121.55px;
   /* Remove or comment out, when table is added*/
   margin-left: auto;
   margin-right: auto;
@@ -78,7 +64,7 @@ body {
   top: -50px;
   width: 100%;
   text-size-adjust: 100%;
-  font-family: SWDropcloth;
+  font-family: "Google Sans Code", sans-serif;
   font-feature-settings: normal;
   font-size: 16px;
   font-variation-settings: normal;

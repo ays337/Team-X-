@@ -33,9 +33,9 @@ const Base = () => {
         <div className="container-grid-1">
           <div className="table-toolbar-outline"></div>
           <div className="table-separator"></div>
-          <table id="invoice-table" className="invoice-table">
-            <thead className="invoice-table-thead" style={{ top: "106px" }}>
-              <tr className="invoice-table-tr">
+          <table id="warehouse-table" className="warehouse-table">
+            <thead className="warehouse-table-thead" style={{ top: "106px" }}>
+              <tr className="warehouse-table-tr">
                 <th>Column 1</th>
                 <th>Column 2</th>
                 <th>Column 3</th>
@@ -46,7 +46,7 @@ const Base = () => {
             </thead>
             <tbody>
               {[...Array(20)].map((_, i) => (
-                <tr className="invoice-table-row" key={i}>
+                <tr className="warehouse-table-row" key={i}>
                   <td>Row {i + 1} - 1</td>
                   <td>Row {i + 1} - 2</td>
                   <td>Row {i + 1} - 3</td>

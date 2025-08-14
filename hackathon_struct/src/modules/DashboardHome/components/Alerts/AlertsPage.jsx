@@ -1,6 +1,6 @@
 import React from "react";
 // import "common/styles.css";
-import "../LayoutTest/base.css";
+import "../LayoutTest/base_generated.css";
 
 const AlertsPage = ({ sortedMock }) => {
   const alertRows = sortedMock?.filter(

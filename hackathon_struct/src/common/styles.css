@@ -1,6 +1,7 @@
 /* ------------------------ */
 /* Testing  Base Layout Containers */
 /* ------------------------ */
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
 
 *,
 *::before,
@@ -28,11 +29,10 @@ body {
 .base-wrapper {
   position: relative;
   box-sizing: border-box;
-  height: 5415.09px;
+  /* height: 5415.09px; */
   width: 100%; /* or 100% */
   max-width: 100%;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  background-color: rgb(182, 2, 2);
+  font-family: "Google Sans Code", sans-serif;
 }
 .section-top-banner {
   box-sizing: border-box;
@@ -41,10 +41,8 @@ body {
   padding-bottom: 64px; /* from .swdc-pb-8 (var(--swdc-spacer-8)) */
   padding-left: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
   padding-right: 64px; /* from .swdc-px-[var(--swdc-gutter-page)] */
-  font-family: SWDropcloth, var(--swdc-text-family-system), ui-sans-serif,
-    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 16px;
+  font-family: "Google Sans Code", sans-serif;
+  /* font-size: 16px; */
   line-height: 1.65;
   tab-size: 4;
   text-size-adjust: 100%;
@@ -56,15 +54,15 @@ body {
 .section-surface-1 {
   box-sizing: border-box;
   display: block;
-  height: 5045.1px;
+  /* height: 5045.1px; */
   padding-left: 64px;
   padding-right: 64px;
   width: 100%; /* or 100% */
   max-width: 100%;
   text-size-adjust: 100%;
-  font-family: SWDropcloth;
+  font-family: "Google Sans Code", sans-serif;
   font-feature-settings: normal;
-  font-size: 16px;
+  /* font-size: 16px; */
   font-variation-settings: normal;
   line-height: 26.4px;
   tab-size: 4;
@@ -159,7 +157,7 @@ body {
   padding-top: 2px;
   padding-bottom: 2px;
   background-color: white;
-  font-size: 12px;
+  /* font-size: 12px; */
   line-height: 1.33;
   letter-spacing: 0px;
   box-sizing: border-box;
@@ -212,7 +210,7 @@ body {
   padding: 8px;
   font-weight: 400;
   box-sizing: border-box;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 
 .tdcontentspan {
@@ -227,7 +225,7 @@ body {
   font-weight: 400;
   text-align: center;
   box-sizing: border-box;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 
 @media (min-width: 768px) {

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap");
+
 .section-top-banner {
   box-sizing: border-box;
   height: 368px;
@@ -25,6 +27,7 @@
 
 .container-grid-1 {
   position: relative;
+  font-family: "Google Sans Code", sans-serif;
   margin-left: auto;
   margin-right: auto;
   max-width: 1312px;
@@ -66,7 +69,7 @@
   max-width: 100%;
 }
 
-.invoice-table {
+.warehouse-table {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -77,13 +80,13 @@
   background: none;
 }
 
-.invoice-table-thead {
+.warehouse-table-thead {
   position: sticky;
   z-index: 10;
   background-color: #4086ff;
 }
 
-.invoice-table-tr {
+.warehouse-table-tr {
   top: 122px; /* toolbar height + separator gap */
   z-index: 10;
   border-radius: 6px;
@@ -93,33 +96,7 @@
   background: #fff;
 }
 
-.invoice-table th {
-  background: #fff;
-  position: sticky;
-  top: 106px; /* adjust to match toolbar/separator height */
-  z-index: 12;
-}
-
-.invoice-table-row {
-  background: #fff;
-  height: 40px;
-}
-
-.invoice-table td {
-  padding: 8px;
-}
-
-.invoice-table-row {
-  background: #fff;
-  height: 100px;
-}
-
-/* gap matches sticky separator height */
-/* .invoice-table-row + .invoice-table-row {
-  border-top: 16px solid #dde1e8; 
-} */
-
-.invoice-table {
+.warehouse-table {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -129,8 +106,83 @@
   border-radius: 2px;
   background: none;
 }
-/* Optional: Make the gap more visible by rounding the row corners */
-.invoice-table-row {
-  border-radius: 8px;
-  overflow: hidden;
+
+.warehouse-table td {
+  background: #fff;
+  padding: 8px;
+  border-top: 2px solid #dde1e8;
+  border-bottom: 2px solid #dde1e8;
+  text-align: center;
+}
+
+.warehouse-table-header-th {
+  background: #fff;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: "Google Sans Code", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-top: 2px solid #dde1e8;
+  border-bottom: 2px solid #dde1e8;
+  text-align: center;
+
+  position: sticky;
+  top: 106px; /* adjust to match toolbar/separator height */
+  z-index: 12;
+}
+
+.warehouse-table-header-th-first {
+  border-left: 2px solid #dde1e8;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-right: 5px solid rgb(221, 225, 232);
+  position: sticky;
+  top: 106px; /* adjust to match toolbar/separator height */
+  z-index: 12;
+}
+
+.warehouse-table-header-th-last {
+  border-right: 2px solid #dde1e8;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: sticky;
+  top: 106px; /* adjust to match toolbar/separator height */
+  z-index: 12;
+}
+
+.warehouse-table-body-td {
+  background: #fff;
+  padding: 8px;
+  border-top: 2px solid #dde1e8;
+  border-bottom: 2px solid #dde1e8;
+  text-align: center;
+}
+
+.warehouse-table-body-td-first {
+  border-left: 2px solid #dde1e8;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-right: 5px solid rgb(221, 225, 232);
+}
+
+.warehouse-table-body-td-last {
+  border-right: 2px solid #dde1e8;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.warehouse-table-thead-thead {
+  background: #fff;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: "Google Sans Code", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-top: 2px solid #dde1e8;
+  border-bottom: 2px solid #dde1e8;
+  /* Middle ths only get vertical borders */
+}
+
+.tdcontentwrapper {
+  border-left: 2px solid rgb(221, 225, 232); /* Use your surface-2 color */
 }
