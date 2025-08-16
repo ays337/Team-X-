@@ -1,5 +1,5 @@
 import React from "react";
-import "../LayoutTest/base.css";
+// import "../LayoutTest/base.css";
 import "../LayoutTest/base_generated.css";
 const Base = () => {
   //   return (

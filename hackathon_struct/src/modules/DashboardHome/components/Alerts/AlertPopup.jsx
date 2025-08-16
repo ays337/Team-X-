@@ -15,7 +15,8 @@ const AlertPopup = ({ data }) => {
           <div
             key={`alert-${row.sku_id}`}
             style={{
-              bottom: `${20 + index * 20}px`, // stack alerts vertically
+              top: `${50 + index * 20}px`,
+              right: `${20}px`, // stack alerts vertically
             }}
             className="alert-container"
           >

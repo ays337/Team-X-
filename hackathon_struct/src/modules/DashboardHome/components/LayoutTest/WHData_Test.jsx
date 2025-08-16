@@ -2,8 +2,11 @@ import React from "react";
 import AlertsPage from "../Alerts/AlertsPage";
 import AlertPopup from "../Alerts/AlertPopup";
 import { useSelector } from "react-redux";
-import "common/styles.css";
-import "../LayoutTest/base_generated.css"; // Importing the base styles for layout
+
+// import "common/styles.css";
+// import "../LayoutTest/base.css";
+import "../LayoutTest/base_generated.css";
+
 import TableHeader_test from "./TableTest/TableHeader_test";
 import TableRow_test from "./TableTest/TableRow_test";
 import FilterHeader_test from "./TableTest/FilterHeader_test";
@@ -59,7 +62,7 @@ const WHData_Test = () => {
             </table>
           </div>
         </section>
-        <AlertsPage sortedMock={filteredMock} />
+        <AlertsPage filteredMock={filteredMock} />
         <AlertPopup data={filteredMock} />
       </div>
     </>

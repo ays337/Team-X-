@@ -96,6 +96,7 @@ body {
   z-index: 1000;
 }
 
+/* not used in new layout */
 .noti-title {
   background-image: linear-gradient(to bottom, #d3d3d3, #e0e4ec 100%);
   font-weight: bold;
@@ -115,6 +116,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* not used in new layout */
 .tablestyles {
   position: relative;
   margin-left: auto;
@@ -128,6 +130,7 @@ body {
   box-sizing: inherit;
 }
 
+/* not used in new layout */
 .theadstyles {
   background-color: rgb(221 225 232);
   top: 106px;
@@ -141,6 +144,7 @@ body {
   border-color: currentColor;
 }
 
+/* not used in new layout */
 .trheadstyles {
   border-radius: 0.125rem;
   border-width: 1px;
@@ -149,6 +153,7 @@ body {
   border-color: rgb(221 225 232);
 }
 
+/* not used in new layout */
 .thheadstyles {
   border-radius: 0.375rem;
   border-width: 2px;
@@ -164,9 +169,12 @@ body {
   border-style: solid;
 }
 
+/* used in both */
 .trbodystyles {
   background-color: white;
 }
+
+/* not used in new layout */
 .tdbodyleftstyles {
   border-top-left-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
@@ -234,6 +242,7 @@ body {
   }
 }
 
+/* not used in new layout */
 .home-grid {
   width: 100% !important;
   justify-content: center;
@@ -246,6 +255,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* not used in new layout */
 .button-grid {
   grid-template-columns: 1fr 1fr;
   row-gap: 8px;
@@ -253,7 +263,7 @@ body {
   display: grid;
   justify-items: center;
 }
-
+/* not used in new layout */
 .button-grid.three-btn {
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -262,6 +272,7 @@ body {
 /* Main Content  */
 /* ------------------------ */
 
+/* not used in new layout */
 .home-title {
   font-size: 2rem;
   font-weight: bold;
@@ -269,7 +280,7 @@ body {
   margin-bottom: 1.5rem;
   text-align: center;
 }
-
+/* not used in new layout */
 .action-button {
   background-color: #ffffff;
   border: 2px solid #d1d5db;
@@ -286,19 +297,19 @@ body {
   font-size: 0.8rem;
   font-weight: bold;
 }
-
+/* not used in new layout */
 .action-button:hover {
   background-color: #e5f0ff;
   border-color: rgba(57, 144, 216, 0.699);
   transform: translateY(-2px);
 }
-
+/* not used in new layout */
 .button-with-label {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+/* not used in new layout */
 .button-label {
   margin-top: 0.2rem;
   font-size: 0.85rem;
@@ -312,6 +323,8 @@ body {
 /* ------------------------ */
 /* Results Styles */
 /* ------------------------ */
+
+/* not used in new layout */
 .results-flex {
   background-image: linear-gradient(to bottom, #022966, #107cca 100%);
   display: flex;
@@ -321,13 +334,14 @@ body {
   align-items: center;
   border-radius: 0rem 0rem 0.5rem 0.5rem;
 }
+/* not used in new layout */
 .results-text {
   width: 100%;
   color: rgb(224, 226, 226);
   display: flex;
   justify-content: center;
 }
-
+/* not used in new layout */
 .results-text ul {
   text-align: center;
   padding-inline-start: 0rem;

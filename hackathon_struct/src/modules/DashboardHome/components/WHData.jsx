@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import AlertsPage from "./Alerts/AlertsPage";
 import AlertPopup from "./Alerts/AlertPopup";
 import { useSelector } from "react-redux";
-// import "../components/LayoutTest/base.css"; // Importing the base styles for layout
 import "../components/LayoutTest/base_generated.css";
 import FilterHeader from "./Table/FilterHeader";
 import TableHeader from "./Table/TableHeader";

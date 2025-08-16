@@ -1,8 +1,8 @@
 import React from "react";
 import "../LayoutTest/base_generated.css";
 
-const AlertsPage = ({ sortedMock }) => {
-  const alertRows = sortedMock?.filter(
+const AlertsPage = ({ filteredMock }) => {
+  const alertRows = filteredMock?.filter(
     (row) =>
       row.days_of_service < 0 ||
       row.alert_type === "Low days of service" ||
@@ -24,7 +24,8 @@ const AlertsPage = ({ sortedMock }) => {
       {alertRows.map((row, index) => (
         <div key={index} className="notif-card" style={{}}>
           Alert for ID {row.sku_id}: <br />
-          Potential causes of error in these fields: <br />
+          Potential cause:
+          <br />
           {row.alert_type && (
             <>
               Alert message: {row.alert_type} <br />
@@ -36,9 +37,7 @@ const AlertsPage = ({ sortedMock }) => {
             </>
           )}
           {row.remortgage_gallons > 1100 && (
-            <>
-              Remortgage Gallons: {row.remortgage_gallons} <br />
-            </>
+            <>Remortgage Gallons: {row.remortgage_gallons}</>
           )}
         </div>
       ))}
